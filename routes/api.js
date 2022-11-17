@@ -23,12 +23,6 @@ router.get('/notes', (req, res) => {
 })
 
 router.post('/notes', (req, res) => {
-        
-    // const notesData = require('../db/db.json')
-    // console.log(notesData)
-    // const noteObj = {title: req.body.title, text: req.body.text, id: Math.floor(Math.random()*10)}
-    // notesData.push(noteObj)
-    // let db = JSON.parse(fs.readFileSync("./db/db.json", "utf-8"))
 
     const newNote = {
         ...req.body,
@@ -54,5 +48,31 @@ router.post('/notes', (req, res) => {
         })
     })
 })
+
+router.delete('/notes/:id', (req, res) => {
+    const id = req.params.id
+  
+    if (!id) {
+      return res.status(400).json({ error: "We need an id" })
+    }
+  
+
+    fs.readFile(dbPath, "utf8", function(err, data) {
+
+        
+      const noteData = JSON.parse(data)
+
+      
+      const newNoteData = noteData.filter(note => id != note.id)
+
+      
+      fs.writeFile(dbPath, JSON.stringify(newNoteData), function(err) {
+        if (err) {
+          return res.status(500).json(err)
+        }
+        res.json(true)
+      })
+    })
+  })
 
 module.exports = router
