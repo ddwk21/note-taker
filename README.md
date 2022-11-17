@@ -14,6 +14,8 @@ To add a new note, press the plus button in the top right corner.
 
 To delete a note, press the small red trash can icon next to the list of previous notes.
 
+https://ddwk21-note-taker.herokuapp.com/notes
+
 
 ## Screenshot
 
