@@ -13,3 +13,8 @@ To save a note, press the little floppy disk icon in the top right when the fiel
 To add a new note, press the plus button in the top right corner.
 
 To delete a note, press the small red trash can icon next to the list of previous notes.
+
+
+## Screenshot
+
+![A screenshot of the note-taker app](./note-taker-screenie.png "Screenshot")
